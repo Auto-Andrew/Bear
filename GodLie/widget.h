@@ -28,11 +28,12 @@ public:
     ~Widget();
     Player p[100];
     int n=1;
-    int head;//村长
-    int black;
-    int red;
-    int currentNO;//当前玩家
-    int right;//0左边 1右边
+    int head=1;//村长
+    int black;//黑牌
+    int red;//红牌
+    int night=-1;//0红夜 1黑夜
+    int currentNO=1;//当前玩家
+    int right=0;//0左边 1右边
     int flag=0;//0什么也不做 1选村长 2游戏环节
     int pShow=0;//是否刷新重绘
     int chFlag=0;//关于村长的特殊投票
@@ -42,7 +43,7 @@ public:
     void lastWords(int k);//遗言
     int NOShift(int k);//切换下一位玩家
     int Tie();//平票
-    void NightShift();//进入黑/红夜
+    int NightShift();//进入黑/红夜
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -55,6 +56,8 @@ private slots:
     void on_voteSubmit_clicked();
 
     void on_eyeOpen_clicked();
+
+    void on_skip_clicked();
 
 private:
     Ui::Widget *ui;

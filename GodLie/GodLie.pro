@@ -32,3 +32,5 @@ HEADERS += \
 
 FORMS += \
         widget.ui
+
+CONFIG += C++11
