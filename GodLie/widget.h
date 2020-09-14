@@ -26,12 +26,13 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
-    Player p[100];
+    Player p[30];
+    int temp[30];
     int n=1;
-    int head=1;//村长
+    int head=0;//村长
     int black;//黑牌
     int red;//红牌
-    int night=-1;//0红夜 1黑夜
+    int night=-1;//0黑夜 1红夜
     int currentNO=1;//当前玩家
     int right=0;//0左边 1右边
     int flag=0;//0什么也不做 1选村长 2游戏环节
@@ -40,7 +41,6 @@ public:
     void SetCard();//发牌
     void Vote();//投票
     void Deal(int k);//放逐+判断游戏是否结束
-    void lastWords(int k);//遗言
     int NOShift(int k);//切换下一位玩家
     int Tie();//平票
     int NightShift();//进入黑/红夜
